@@ -8,6 +8,8 @@ struct bsTree{
 
 };
 
+
+
 void main(){
     
 }
