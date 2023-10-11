@@ -20,10 +20,10 @@ b* insert(b* root,int val){
         return root;
     }
 
-    if(val<root->data){
+    if(val<root->data){                                 //adding to left side
         root->left=insert(root->left,val);
     }else{
-        root->right=insert(root->right,val);
+        root->right=insert(root->right,val);   //adding to right side
     }
 
     return root;
