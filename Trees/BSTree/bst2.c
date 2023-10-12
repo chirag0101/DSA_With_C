@@ -106,6 +106,9 @@ void main(){
             case 4: maxNode(root);
                 break;
             
+            case 5: minNode(root);
+                break;
+                  
             default: printf("Invalid IP!\n");
                 break;
         }
