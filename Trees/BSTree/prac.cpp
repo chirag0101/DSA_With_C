@@ -26,20 +26,21 @@ b* insert(b* root,int data){
 
 }
 
-// bool searchInBst(b* root,int data){
-//     if(root==NULL){
-//         return false;
-//     }
-//     if(root->data=data){
-//         return true;
-//     }
-//     if(root->data>data){
-//         return searchInBst(root->left,data);
-//     }
-//     if(root->data<data){
-//         return searchInBst(root->right,data);
-//     }
-// }
+bool searchInBst(b* root,int data){
+    if(root==NULL){
+        return false;
+    }
+    if(root->data=data){
+        return true;
+    }
+    if(root->data>data){
+        return searchInBst(root->left,data);
+    }
+    if(root->data<data){
+        return searchInBst(root->right,data);
+    }
+    return false;
+}
 
 void printBST(b* root){
     if(root==NULL){
@@ -57,10 +58,17 @@ void maxNode(b* root){
 
 int main(){
     b* root=NULL;
+     int size,data;
+    printf("Enter No. of Nodes:"):
+    scanf("%d",&size);
+
+    for(int i=0;i<size;i++){
+        scanf("%d",&data);
+        root=insert(root,data);
+    }
     
     char ch;
     do{
-        int size,data;
 
         int choice;
         printf("Enter Choice: \n1.Insert Node\n2.Print Tree\n3.Search Element\n4.Max Node\n5.Min Node");
@@ -78,15 +86,15 @@ int main(){
             break;
 
         case 3:{
-            // int search;
-            // printf("Enter element to search:");
-            // scanf("%d",&search);
-            // bool found=searchInBst(root,search);
-            // if(found==true){
-            //     printf("Found!\n");
-            // }else{
-            //     printf("Not Found!\n");
-            // }
+            int search;
+            printf("Enter element to search:");
+            scanf("%d",&search);
+            bool found=searchInBst(root,search);
+            if(found==true){
+                printf("Found!\n");
+            }else{
+                printf("Not Found!\n");
+            }
         }
         break;
 
