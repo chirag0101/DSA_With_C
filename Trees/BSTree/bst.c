@@ -55,6 +55,21 @@ bool search(b* root,int ele){
     }
 }
 
+bool iterativeSearch(b* root,int ele){
+    b* temp=root;
+    while(temp!=NULL){
+        if(root->data==ele){
+            return true;
+        }
+        if(root->data>ele){
+            temp=temp->left;
+        }else{
+            temp=temp->right;
+        }
+    }
+    return false;
+}
+
 void main(){
     b* root=NULL;
     int size;
@@ -80,4 +95,13 @@ void main(){
     }
 
     inOrder(root);
+
+    bool find2=iterativeSearch(root,ele);
+
+    if(find2==true){
+        printf("Found!");
+    }else{
+        printf("Not found!");
+    }
+
 }
