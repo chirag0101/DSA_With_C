@@ -37,8 +37,7 @@ bool searchInBst(b* root,int data){
     }
     if(root->data>data){
         return searchInBst(root->left,data);
-    }
-    if(root->data<data){
+    }else{
         return searchInBst(root->right,data);
     }
 }
@@ -54,6 +53,10 @@ void printBST(b* root){
 }
 
 void maxNode(b* root){
+    if(root==NULL){
+        return;
+    }
+
     b* temp=root;
     while(temp->right!=NULL){
         temp=temp->right;
@@ -69,6 +72,13 @@ void minNode(b* root){
     printf("%d\n",temp->data);
 }
 
+b* deleteNode(b* root,int node){
+    if(root==NULL){
+        return NULL;
+    }
+    
+}
+
 void main(){
     b* root=NULL;
     int size,data;
@@ -77,7 +87,7 @@ void main(){
     do{
 
         int choice;
-        printf("Enter Choice: \n1.Insert Node\n2.Print Tree\n3.Search Element\n4.Max Node\n5.Min Node\n");
+        printf("Enter Choice: \n1.Insert Node\n2.Print Tree\n3.Search Element\n4.Max Node\n5.Min Node\n6.Delete Node\n");
         scanf("%d",&choice);
         switch (choice){
             case 1:{
@@ -95,10 +105,10 @@ void main(){
                 printf("Enter element to search:");
                 scanf("%d",&search);
                 bool found=searchInBst(root,search);
-                if(found==false){
-                    printf("Not Found!\n");
-                }else{
+                if(found==true){
                     printf("Found!\n");
+                }else{
+                    printf("Not Found!\n");
                 }
             }
             break;
@@ -108,6 +118,14 @@ void main(){
             
             case 5: minNode(root);
                 break;
+            
+            case 6: {
+                int node;
+                printf("Enter Node to delete:");
+                scanf("%d",&node);
+                root=deleteNode(root,node);
+            }
+            break;
                   
             default: printf("Invalid IP!\n");
                 break;
