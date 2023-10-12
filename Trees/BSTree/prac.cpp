@@ -39,7 +39,6 @@ bool searchInBst(b* root,int data){
     if(root->data<data){
         return searchInBst(root->right,data);
     }
-    return false;
 }
 
 void printBST(b* root){
@@ -59,7 +58,7 @@ void maxNode(b* root){
 int main(){
     b* root=NULL;
      int size,data;
-    printf("Enter No. of Nodes:"):
+    printf("Enter No. of Nodes:");
     scanf("%d",&size);
 
     for(int i=0;i<size;i++){
@@ -90,7 +89,7 @@ int main(){
             printf("Enter element to search:");
             scanf("%d",&search);
             bool found=searchInBst(root,search);
-            if(found==true){
+            if(!found){
                 printf("Found!\n");
             }else{
                 printf("Not Found!\n");
