@@ -17,11 +17,13 @@ b* insert(b* root,int data){
         root=newNode;
         return root;
     }
+
     if(root->data>data){
         root->left=insert(root->left,data);
-    }else{
+    }else if(root->data<data){
         root->right=insert(root->right,data);
     }
+    
     return root;
 
 }
@@ -52,7 +54,19 @@ void printBST(b* root){
 }
 
 void maxNode(b* root){
+    b* temp=root;
+    while(temp->right!=NULL){
+        temp=temp->right;
+    }
+    printf("%d\n",temp->data);
+}
 
+void minNode(b* root){
+    b* temp=root;
+    while(temp->left!=NULL){
+        temp=temp->left;
+    }
+    printf("%d\n",temp->data);
 }
 
 void main(){
@@ -63,39 +77,39 @@ void main(){
     do{
 
         int choice;
-        printf("Enter Choice: \n1.Insert Node\n2.Print Tree\n3.Search Element\n4.Max Node\n5.Min Node");
+        printf("Enter Choice: \n1.Insert Node\n2.Print Tree\n3.Search Element\n4.Max Node\n5.Min Node\n");
         scanf("%d",&choice);
-        switch (choice)
-        {
-        case 1:{
-                printf("Enter Data:");
-                scanf("%d",&data);
-                root=insert(root,data);
+        switch (choice){
+            case 1:{
+                    printf("Enter Data:");
+                    scanf("%d",&data);
+                    root=insert(root,data);
+                }
+                break;
+            
+            case 2: printBST(root);
+                break;
+
+            case 3:{
+                int search;
+                printf("Enter element to search:");
+                scanf("%d",&search);
+                bool found=searchInBst(root,search);
+                if(found==false){
+                    printf("Not Found!\n");
+                }else{
+                    printf("Found!\n");
+                }
             }
             break;
-        
-        case 2: printBST(root);
-            break;
 
-        case 3:{
-            int search;
-            printf("Enter element to search:");
-            scanf("%d",&search);
-            bool found=searchInBst(root,search);
-            if(!found){
-                printf("Found!\n");
-            }else{
-                printf("Not Found!\n");
-            }
+            case 4: maxNode(root);
+                break;
+            
+            default: printf("Invalid IP!\n");
+                break;
         }
-        break;
 
-        case 4: maxNode(root);
-            break;
-        
-        default: printf("Invalid IP!\n");
-            break;
-        }
         getchar();
         printf("Continue?");
         scanf("%c",&ch);
