@@ -76,6 +76,8 @@ b* deleteNode(b* root,int node){
     if(root==NULL){
         return NULL;
     }
+
+    
     
 }
 
