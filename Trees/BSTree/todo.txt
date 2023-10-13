@@ -1,0 +1,3 @@
+1. validate bst
+2. predeccesor(previous node of entered node) successor(next node of entered node)
+3. kth largest element
