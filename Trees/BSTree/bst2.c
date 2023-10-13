@@ -52,7 +52,7 @@ void printBST(b* root){
     }
 }
 
-void maxNode(b* root){
+int maxNode(b* root){
     if(root==NULL){
         return;
     }
@@ -61,15 +61,15 @@ void maxNode(b* root){
     while(temp->right!=NULL){
         temp=temp->right;
     }
-    printf("%d\n",temp->data);
+    return temp->data;
 }
 
-void minNode(b* root){
+int minNode(b* root){
     b* temp=root;
     while(temp->left!=NULL){
         temp=temp->left;
     }
-    printf("%d\n",temp->data);
+    return temp->data;
 }
 
 b* deleteNode(b* root,int node){
@@ -77,8 +77,38 @@ b* deleteNode(b* root,int node){
         return NULL;
     }
 
-    
-    
+    if(root->data<node){
+        root->right=deleteNode(root->right,node);
+    }else if(root->data>node){
+        root->left=deleteNode(root->left,node);
+    }else{
+   
+        if(root->left==NULL && root->right==NULL){
+            free(root);
+            return NULL;
+        }
+
+        if(root->left!=NULL && root->right==NULL){
+            b* temp=root->left;
+            free(root);
+            return temp;
+        }
+        
+        if(root->left==NULL && root->right!=NULL){
+            b* temp=root->right;
+            free(root);
+            return root;
+        }
+        
+        if(root->left!=NULL && root->right!=NULL){
+            int min=minNode(root->right);
+            root->data=min;
+            root->right=deleteNode(root->right,min);
+            return root;
+        }
+        
+        return root;
+    }
 }
 
 void main(){
@@ -115,17 +145,30 @@ void main(){
             }
             break;
 
-            case 4: maxNode(root);
+            case 4: {
+                    int max=maxNode(root);
+                    printf("Max element: %d",max);
+                }
                 break;
             
-            case 5: minNode(root);
+            case 5:{
+                    int min=minNode(root);
+                    printf("Min element: %d",min);
+                }
                 break;
             
             case 6: {
                 int node;
                 printf("Enter Node to delete:");
                 scanf("%d",&node);
-                root=deleteNode(root,node);
+                if(root==NULL){
+                    printf("Tree Empty!\n");
+                }else{
+                    root=deleteNode(root,node);
+                    if(root==NULL){
+
+                    }
+                }
             }
             break;
                   
