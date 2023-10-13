@@ -107,8 +107,8 @@ b* deleteNode(b* root,int node){
             return root;
         }
         
-        return root;
     }
+        return root;
 }
 
 void main(){
