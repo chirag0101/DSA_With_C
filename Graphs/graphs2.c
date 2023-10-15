@@ -1,11 +1,11 @@
-//directed graph adjacency matrix
+//undirected graph adjacency matrix
 #include<stdio.h>
 
 void main(){
     int arr[4][4]={0,1,0,0,
-                         0,0,1,0,
-                         0,0,0,1,
-                         0,0,0,0};
+                         1,0,1,0,
+                         0,1,0,1,
+                         0,0,1,0};
 
     char ch1='A';
 
