@@ -71,12 +71,16 @@ bool search(b* root,int data){
     }
 }
 
+b* delete(b* root,int data){
+
+}
+
 int main(){
     b* root=NULL;
     char ch;
     do{
         int choice;
-        printf("Enter Choice:   1. Insert Node. 2.Print Tree. 3.Max Node. 4.Min Node. 5.Search Node. :");
+        printf("Enter Choice:   1. Insert Node. 2.Print Tree. 3.Max Node. 4.Min Node. 5.Search Node. 6.Delete Node.:");
         scanf("%d",&choice);
         switch(choice){
             case 1:{
@@ -114,6 +118,13 @@ int main(){
                 }
             }
             break;
+
+            case 6:{
+                int data;
+                printf("Enter Data:");
+                scanf("%d",&data);
+                root=delete(root,data);
+            }
 
             default:    printf("Invalid Choice.\n");
                         break;
