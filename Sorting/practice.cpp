@@ -14,10 +14,11 @@ int main(){
     }
 
     for(int i=0;i<size;i++){
-        int min=arr[i];
+        int min=arr[i];                         //6
         for(int j=i+1;j<size;j++){
-            if(min>arr[j]){
+            if(min>arr[j]){                     //6>2
                 swap(arr[i],arr[j]);
+                break;
             }
         }
     }
