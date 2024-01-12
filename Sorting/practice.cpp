@@ -23,7 +23,7 @@ int main(){
 
 
     }
-
+//tell me the space complexitiy of this program?
     // for(int i=0;i<size;i++){
     //     cout<<arr[i]<<" ";
     // }
