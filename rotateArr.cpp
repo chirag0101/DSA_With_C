@@ -1,3 +1,10 @@
+//	while rotating an array 1st reverse from which part you want to rotate and then reverse the rest part and then reverse the whole array
+//	ex:	1,2,3,4,5,6
+//	k:2  rotate by 2
+//		4,3,2,1		6,5
+//	now reverse the array
+//	5,6,1,2,3,4
+
 #include<iostream>
 using namespace std;
 
