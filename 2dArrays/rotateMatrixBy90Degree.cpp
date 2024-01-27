@@ -17,7 +17,16 @@ int main(){
         }
     }
 
+    int start=0;
+    int end=cols-1;
 
+    while(start<end){
+        for(int i=0;i<3;i++){
+            swap(arr[i][start],arr[i][end]);
+        }
+        start++;
+        end--;
+    }
     
 
     for(int i=0;i<3;i++){
