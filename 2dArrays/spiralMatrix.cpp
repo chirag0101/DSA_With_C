@@ -2,12 +2,12 @@
 using namespace std;
 
 int main(){
-    int arr[3][3]={10,20,30,
-                         40,50,60,
-                         70,80,90};
+    int arr[4][4]={1,2,3,4,
+                         5,6,7,8,
+                         9,10,11,12};
 
-    int rows=3;
-    int cols=3;
+    int rows=4;
+    int cols=4;
 
     int startRows=0;
     int endRows=rows-1;
