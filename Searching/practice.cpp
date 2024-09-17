@@ -6,6 +6,7 @@ int main(){
     cout<<"Enter Size Of Array:";
     
     cin>>size;
+    
     int arr[size];
     cout<<"Enter Array Elements:";
     for(int i=0;i<size;i++){
